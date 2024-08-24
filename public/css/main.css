@@ -1,0 +1,223 @@
+body {
+  background-color: #efeeee;
+}
+.mainPage {
+  display: flex;
+}
+
+.toggle-btn {
+  margin: 0;
+  margin-left: 10px;
+  display: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.logo-div {
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+.logo {
+  width: 250px;
+}
+
+.tradingview-top {
+  margin: 15px;
+  box-shadow: 5px 5px 10px #ccc;
+}
+
+.widgets {
+  flex: 1;
+  width: 500px;
+}
+
+.logoImage {
+  width: 230px;
+}
+
+.welcome-user {
+  font-size: 17px;
+}
+
+.userActive {
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.nav-link {
+  height: 55px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  background-color: rgb(71, 69, 69);
+  margin: 3px 0;
+}
+
+.nav-link:active,
+.nav-link:visited {
+  color: #fff;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 217, 142, 0.264);
+  color: rgb(255, 171, 0);
+}
+
+.margin {
+  margin-right: 5px;
+}
+
+#activee {
+  border-left: 4px solid rgb(255, 171, 0);
+  background-color: rgba(255, 217, 142, 0.264);
+  color: rgb(255, 171, 0);
+}
+
+.card-1 {
+  background-image: linear-gradient(90deg, rgb(158, 189, 19) 0%, rgb(0, 133, 82) 100%);
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.card-2 {
+  background-image: linear-gradient(90deg, rgb(0, 210, 255) 0%, rgb(58, 71, 213) 100%);
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.card-3 {
+  background-image: linear-gradient(90deg, rgb(0, 201, 255) 0%, rgb(146, 254, 157) 100%);
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.card-4 {
+  background-image: linear-gradient(90deg, rgb(213, 51, 105) 0%, rgb(218, 174, 81) 100%);
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.trade-chat {
+  margin: 15px;
+  margin-bottom: 0;
+  height: 330px;
+  box-shadow: 5px 5px 10px #ccc;
+}
+
+.trade-prices {
+  margin: 15px;
+  margin-top: 0;
+  box-shadow: 5px 5px 10px #ccc;
+}
+
+.deposit {
+  margin: 15px;
+  background-color: #fff;
+  box-shadow: 5px 5px 10px #ccc;
+}
+
+.admin-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+
+  .toggle-btn,
+  .logo-div {
+    display: block;
+  }
+
+  .admin-div {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+
+  .toggle-btn,
+  .logo-div {
+    display: block;
+  }
+
+  .admin-div {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .toggle-btn,
+  .logo-div {
+    display: block;
+  }
+
+  .admin-div {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .sidebar {
+    display: block;
+  }
+
+  .toggle-btn,
+  .logo-div {
+    display: none;
+  }
+
+  .admin-div {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .sidebar {
+    display: block;
+  }
+
+  .toggle-btn,
+  .logo-div {
+    display: none;
+  }
+
+  .admin-div {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+
+.deposit-div {
+  margin: 15px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 1px 5px 10px #ccc;
+}
+
+.deposit-inner-div button {
+  padding: 6px 12px;
+}

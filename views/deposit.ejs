@@ -1,0 +1,127 @@
+<%- include('./includes/navigation.ejs') %>
+
+        <div class="deposit-div rounded-2">
+          <div class="container-fluid">
+            <div class="deposit-inner-div p-3">
+              <div>
+                <h5>Account Funding (Deposit)</h5>
+              </div>
+              <div>
+                <h6>Fund Deposit</h6>
+                <p>
+                  If for any reason you'd like to deposit an amount that is higher or lower than our usual plans, you can do that using this channel.
+                </p>
+                <p>
+                  You may contact our live chat for further assistance concerning account funding (Deposit).
+                </p>
+                <div class="container mt-5">
+                  <form class="" id="amount-form">
+                    <input class="form-control" type="number" placeholder="$0.00" id="deposit-amount">
+                    <center class="mt-4">
+                      <button type="button" id="modal-submit-btn" class="btn btn-outline-secondary rounded-0" data-bs-toggle="modal" data-bs-target="#depositPopUp">
+                        Deposit
+                      </button>
+                      <button class="btn btn-warning rounded-0" type="reset">Reset</button>
+                    </center>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="depositPopUp" tabindex="-1" aria-labelledby="depositPopUpTitle" style="display: none;" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="basicmodalTitle">Deposit For <span class="text-danger"><%= user.username %></span> (Open Deposit)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <h6>Invoice ID: #213827 (Use as optional note)</h6>
+                <p>
+                  The Bitcoin equivalent of <span id="price1" class="text-success">$100</span> USD is to be paid to the designated wallet address below.
+                </p>
+                <p>
+                  All payments are to be made via Bitcoin to avoid delay caused by system verification on any account. Contact our live chat support if you are unable to make payment via this channel.
+                </p>
+
+                <div class="input-group mb-3">
+                  <input
+                    id="btc-wallet-basic"
+                    type="text"
+                    class="form-control"
+                    placeholder="Company Wallet"
+                    value="bc1quk5v30u86xwjzdakxmas8nfakl4sx75det6jda"
+                    aria-label=""
+                    aria-describedby="button-addon2"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary rounded-0"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      data-clipboard-target="#btc-wallet-basic"
+                      title=""
+                      data-bs-original-title="Copied!"
+                    >
+                      Copy
+                    </button>
+                  </div>
+                </div>               
+
+                <p>
+                  You can either copy the wallet address by clicking the copy button or scan the barcode below to make payment
+                </p>
+                <center>
+                  <img width="20%" class="mb-5" src="/images/btcqrcode.jpeg">
+                </center> 
+                <div class="d-grid d-block">
+                  <a href="bitcoin:bc1quk5v30u86xwjzdakxmas8nfakl4sx75det6jda" class="text-white btn btn-success btn-lg btn-nolink rounded-0">One Click
+                  Pay (Mobile)</a>
+                </div>          
+              </div>
+              <hr>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/f650632c93.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="/js/main.js"></script>
+    <script>
+      // Initialize Clipboard.js
+      var clipboard = new ClipboardJS('.btn');
+  
+      clipboard.on('success', function(e) {
+        console.log(e);
+        // Show tooltip or alert for successful copy
+        $(e.trigger).tooltip('show');
+        setTimeout(function() {
+          $(e.trigger).tooltip('hide');
+        }, 1000);
+      });
+  
+      clipboard.on('error', function(e) {
+        console.log(e);
+        // Show tooltip or alert for error
+      });
+  
+      // Initialize Bootstrap tooltip
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      });
+    </script>
+  </body>
+</html>

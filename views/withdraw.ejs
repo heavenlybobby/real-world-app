@@ -1,0 +1,87 @@
+<%- include('./includes/navigation.ejs') %>
+
+        <div class="deposit-div rounded-2">
+          <div class="container-fluid">
+            <div class="app-custom-card p-3">
+              <h5>Withdraw Funds</h5>
+              <p>Withdraw your funds from this interface.</p>
+              <br />
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <form action="/withdraw" method="POST">
+                    <select name="withdrawalMethod" id="withdrawalMethod" class="form-select mb-3">
+                      <option> --- Select Method --- </option>
+                      <option value="bitcoin">Bitcoin</option>
+                      <option value="ethereum">Ethereum</option>
+                      <option value="paypal">Paypal</option>
+                    </select>
+                    <div id="btcField" style="display: none;">
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" name="btcAddress" placeholder="Enter BTC Address">
+                        <label for="floatingInput">Bitcoin Wallet Address</label>
+                      </div>
+                    </div>
+                    <div id="ethereumField" style="display: none;">
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" name="ethereumAddress" placeholder="Enter Ethereum Address">
+                        <label for="floatingInput">Ethereum Wallet Address</label>
+                      </div>
+                    </div>
+                    <div id="paypalField" style="display: none;">
+                      <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" name="paypal_email" placeholder="Enter Paypal Email">
+                        <label for="floatingInput">Paypal Email</label>
+                      </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="number" class="form-control" name="withdrawAmount" step="0.01" max="0.00" required>
+                      <label for="floatingInput">Withdrawal Amount: Maximum $0.00</label>
+                    </div>
+                    <div class="d-grid gap-2 mx-auto mb-5">
+                      <button class="btn btn-success" type="submit">Withdraw</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/f650632c93.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="/js/main.js"></script>
+    <script>
+      const withdrawalMethod = document.getElementById("withdrawalMethod");
+      const btcField = document.getElementById("btcField");
+      const ethereumField = document.getElementById("ethereumField");
+      const paypalField = document.getElementById('paypalField');
+
+      withdrawalMethod.addEventListener('change', () => {
+        if (withdrawalMethod.value === 'bitcoin') {
+          btcField.style.display = 'block';
+          ethereumField.style.display = 'none';
+          paypalField.style.display = 'none';
+        } else if (withdrawalMethod.value === 'ethereum') {
+          ethereumField.style.display = 'block';
+          btcField.style.display = 'none';
+          paypalField.style.display = 'none';
+        } else if (withdrawalMethod.value === 'paypal') {
+          paypalField.style.display = 'block';
+          ethereumField.style.display = 'none';
+          btcField.style.display = 'none';
+        } else {
+          btcField.style.display = 'none';
+          ethereumField.style.display = 'none';
+          paypalField.style.display = 'none';
+        }
+      })
+    </script>
+  </body>
+</html>
