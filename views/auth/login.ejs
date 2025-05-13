@@ -5,98 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="icon" href="/images/shortcut44.png" />
-    <title>Online Forex ECN/STP Broker With 24/7 Support | Therealworld</title>
-    <link
-      rel="stylesheet"
-      href="https://app.therealworld.expert/public/custom/css/style.css?86377"
-    />
-    <link
-      rel="stylesheet"
-      href="https://app.therealworld.expert/public/vendor/bootstrap/css/bootstrap.css?51778"
-    />
-    <link
-      rel="stylesheet"
-      href="https://app.therealworld.expert/public/vendor/fontawesome/css/all.css"
-    />
-    <link rel="stylesheet" href="/css/signup.css">
+    <title>Log In | Therealworld</title>
+    <link rel="stylesheet" href="/css/signup.css" />
   </head>
   <body>
-    <div id="custom-loader" class>
+    <div id="custom-loader">
       <div id="app-loader"></div>
     </div>
-    <nav class="navbar navbar-light custom-nav-bggg bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">
+
+    <nav>
+      <div class="navlinks">
+        <a href="/">
           <img src="/images/fps_logo1.png" width="230" alt />
         </a>
-        <div class>
-          <button
-            onclick="location.href='/signup'"
-            class="btn btn-outline-primary"
-          >
-            Sign Up
-          </button>
+        <div>
+          <button onclick="location.href='/signup'">Sign Up</button>
         </div>
       </div>
     </nav>
-    <div class="container-fluid pb-5 pt-5">
-      <div
-        class="d-flex justify-content-center align-items-center full-page-containter"
-      >
-        <div class="col-10 col-md-5 col-lg-3">
-          <center class="mb-4">
-            <h3>Log In</h3>
-          </center>
 
-          <% if (errorMessage) { %>
-            <center>
-              <div class="user-message user-message--error">
-                <%= errorMessage %>
-              </div>
-            </center>
-          <% } %>
-
-          <form action="/login" method="POST">
-            <div class="form-floating mb-3">
-              <input
-                type="text"
-                name="email"
-                class="form-control"
-                id="floatingInput"
-                placeholder="John@example.com"
-                value="<%= oldInput.email %>"
-              />
-              <label for="floatingInput">Email</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input
-                type="password"
-                name="password"
-                class="form-control"
-                id="floatingInput"
-                placeholder="********"
-                value="<%= oldInput.password %>"
-              />
-              <label for="floatingInput">Password</label>
-            </div>
-            <div class="d-grid d-block">
-              <button class="btn btn-warning btn-lg mb-4" type="submit">
-                Log In
-              </button>
-            </div>
-            <p class="text-center montserrat">
-              <a href="/reset-password">Forgot Password?</a>
-            </p>
-            <p class="text-center montserrat text-muted">
-              Don't have an account? <a href="/signup">Sign Up</a>
-            </p>
-          </form>
+    <main>
+      <section>
+        <div>
+          <h3>Log In</h3>
         </div>
-      </div>
-    </div>
-    <script src="https://app.therealworld.expert/public/vendor/jquery/jquery.js"></script>
-    <script src="https://app.therealworld.expert/public/vendor/bootstrap/js/bootstrap.bundle.js?"></script>
-    <script src="https://app.therealworld.expert/public/vendor/fontawesome/js/all.js"></script>
-    <script src="https://app.therealworld.expert/public/custom/js/app.js?69947"></script>
+
+        <center>
+          <% if (errorMessage) { %>
+          <div class="user-message--error"><%= errorMessage %></div>
+          <% } %>
+        </center>
+
+        <form action="/login" method="POST">
+          <div>
+            <label for="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              placeholder="John@example.com"
+              value="<%= oldInput.email %>"
+            />
+          </div>
+
+          <div>
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="********"
+              value="<%= oldInput.password %>"
+            />
+          </div>
+
+          <div>
+            <button type="submit">Log In</button>
+          </div>
+
+          <p><a href="/reset-password">Forgot Password?</a></p>
+          <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+        </form>
+      </section>
+    </main>
   </body>
 </html>

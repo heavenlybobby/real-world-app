@@ -4,149 +4,116 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= pageTitle %></title>
-    <link
-      rel="stylesheet"
-      href="https://app.therealworld.expert/public/custom/css/style.css?42895"
-    />
-    <link
-      rel="stylesheet"
-      href="https://app.therealworld.expert/public/vendor/bootstrap/css/bootstrap.css?66930"
-    />
-    <link
-      rel="stylesheet"
-      href="https://app.therealworld.expert/public/vendor/fontawesome/css/all.css"
-    />
-    <link rel="icon" href="/images/shortcut44.png">
-    <link rel="stylesheet" href="/css/signup.css">
+    <link rel="stylesheet" href="/css/signup.css" />
+    <link rel="icon" href="/images/shortcut44.png" />
   </head>
   <body>
-    <div id="custom-loader" class>
+    <div id="custom-loader">
       <div id="app-loader"></div>
     </div>
-    <nav class="navbar navbar-light custom-nav-bggg bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-          <img
-            src="/images/fps_logo1.png"
-            width="230"
-            alt
-          />
+
+    <nav>
+      <div class="navlinks">
+        <a href="/">
+          <img src="/images/fps_logo1.png" width="230" alt />
         </a>
-        <div class>
-          <button
-            onclick="location.href='/login'"
-            class="btn btn-outline-primary"
-          >
-            Log In
-          </button>
+        <div>
+          <button onclick="location.href='/login'">Log In</button>
         </div>
       </div>
     </nav>
-    <div class="container-fluid pb-5 pt-5">
-      <div
-        class="d-flex justify-content-center align-items-center full-page-containter"
-      >
-        <div class="col-10 col-md-5 col-lg-3">
-          <center class="mb-4">
+
+    <main>
+      <section>
+        <div>
+          <div>
             <h3>Sign Up</h3>
             <p>It takes just a few minutes</p>
-          </center>
+          </div>
 
           <% if (errorMessage) { %>
-            <center>
-              <div class="user-message user-message--error"><%= errorMessage %></div>
-            </center>
+          <div class="user-message--error"><%= errorMessage %></div>
           <% } %>
 
           <form action="/signup" method="POST" novalidate>
-            <div class="form-floating mb-3">
+            <div>
+              <label for="fullname">Fullname</label>
               <input
                 type="text"
                 name="fullname"
-                class="form-control"
-                id="floatingInput"
+                id="fullname"
                 placeholder="John Hawkings Doe"
                 value="<%= oldInput.fullname %>"
               />
-              <label for="floatingInput">Fullname</label>
             </div>
-            <div class="form-floating mb-3">
+
+            <div>
+              <label for="username">Username</label>
               <input
                 type="text"
                 name="username"
-                class="form-control <%= validationErrors.find(e => e.path === 'password') ? 'invalid' : '' %>"
-                id="floatingInput"
+                id="username"
                 placeholder="John123"
                 value="<%= oldInput.username %>"
               />
-              <label for="floatingInput">Username</label>
             </div>
-            <div class="form-floating mb-3">
+
+            <div>
+              <label for="password">Password</label>
               <input
                 type="password"
                 name="password"
-                class="form-control <%= validationErrors.find(e => e.path === 'password') ? 'invalid' : '' %>"
-                id="floatingInput"
+                id="password"
                 placeholder="********"
                 value="<%= oldInput.password %>"
               />
-              <label for="floatingInput">Password</label>
             </div>
-            <div class="form-floating mb-3">
+
+            <div>
+              <label for="confirmPassword">Password Confirmation</label>
               <input
                 type="password"
                 name="confirmPassword"
-                class="form-control <%= validationErrors.find(e => e.path === 'confirmPassword') ? 'invalid' : '' %>"
-                id="floatingInput"
+                id="confirmPassword"
                 placeholder="********"
                 value="<%= oldInput.confirmPassword %>"
               />
-              <label for="floatingInput">Password Confirmation</label>
             </div>
-            <div class="form-floating mb-3">
+
+            <div>
+              <label for="email">Email address</label>
               <input
                 type="email"
                 name="email"
-                class="form-control <%= validationErrors.find(e => e.path === 'email') ? 'invalid' : '' %>"
-                id="floatingInput"
-                placeholder="John@example.com"
+                id="email"
+                placeholder="john@example.com"
                 value="<%= oldInput.email %>"
               />
-              <label for="floatingInput">Email address</label>
             </div>
-            <div class="form-check mt-4 mb-4">
+
+            <div>
               <input
                 name="idemny"
-                class="form-check-input"
                 type="checkbox"
                 value="yes"
-                id="flexCheckDefault"
+                id="confirm-age"
                 checked
               />
-              <label class="form-check-label montserrat" for="flexCheckDefault">
-                I confirm that i am 18 years old or older and accept
+              <label for="confirm-age">
+                I confirm that I am 18 years old or older and accept
                 <a href="/termsandconditions">Terms & Conditions</a> and
                 <a href="#">Privacy Policy</a>
               </label>
             </div>
-            <div class="d-grid d-block">
-              <button
-                class="btn btn-warning btn-lg mb-4"
-                type="submit"
-              >
-                Open an account
-              </button>
+
+            <div>
+              <button type="submit">Open an account</button>
             </div>
-            <p class="text-center montserrat text-muted">
-              Already have an account? <a href="/login">Log In</a> now
-            </p>
+
+            <p>Already have an account? <a href="/login">Log In</a> now</p>
           </form>
         </div>
-      </div>
-    </div>
-    <script src="https://app.therealworld.expert/public/vendor/jquery/jquery.js"></script>
-    <script src="https://app.therealworld.expert/public/vendor/bootstrap/js/bootstrap.bundle.js?"></script>
-    <script src="https://app.therealworld.expert/public/vendor/fontawesome/js/all.js"></script>
-    <script src="https://app.therealworld.expert/public/custom/js/app.js?82685"></script>
+      </section>
+    </main>
   </body>
 </html>
